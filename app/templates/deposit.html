@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+        <style>
+                    body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .deposit-box {
+            background: #ffffff;
+            width: 320px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+        .deposit-box h2 {
+            margin-bottom: 15px;
+            color: #185a9d;
+        }
+
+        .deposit-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .deposit-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .deposit-box input:focus {
+            border-color: #43cea2;
+        }
+
+        .deposit-box button {
+            width: 100%;
+            padding: 10px;
+            background: #43cea2;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .deposit-box button:hover {
+            background: #36b195;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 18px;
+            text-decoration: none;
+            color: #185a9d;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        </style>
+        </head>
+
+<body>
+
+    <div class="deposit-box">
+        <h2>Deposit Money</h2>
+        <p>Enter the amount you want to deposit into your account</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="number" name="amount" placeholder="Enter Amount" required>
+            <input type="text" name="upi_pin" placeholder="Enter pin" required>
+            <button type="submit">Deposit</button>
+        </form>
+
+        <a class="back-link" href="/dashboard/{{ username }}/">← Back to Dashboard</a>
+    </div>
+
+</body>
+</html>
